@@ -53,7 +53,7 @@ def extract_number(line: str, idx: int) -> tuple[int, int]:
 
 
 def first():
-    with open("input.txt") as f:
+    with open("input.txt", encoding="utf-8") as f:
         lines = [line.strip() for line in f.readlines()]
     total = 0
     extracted = set()
@@ -79,7 +79,7 @@ def first():
                         total += number
                         extracted.add((start_idx, y + dy))
 
-    with open("output.txt", "w") as f:
+    with open("output.txt", "w", encoding="utf-8") as f:
         f.write(str(total))
 
 
@@ -114,7 +114,7 @@ What is the sum of all of the gear ratios in your engine schematic?
 
 
 def second():
-    with open("input.txt") as f:
+    with open("input.txt", encoding="utf-8") as f:
         lines = [line.strip() for line in f.readlines()]
     total = 0
 
@@ -143,7 +143,7 @@ def second():
                 if len(extracted) == 2:
                     total += ratio
 
-    with open("output.txt", "w") as f:
+    with open("output.txt", "w", encoding="utf-8") as f:
         f.write(str(total))
 
 

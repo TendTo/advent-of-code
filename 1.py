@@ -25,7 +25,7 @@ Consider your entire calibration document. What is the sum of all of the calibra
 
 
 def first():
-    with open("input.txt") as f:
+    with open("input.txt", encoding="utf-8") as f:
         lines = f.readlines()
     total = 0
     for line in lines:
@@ -36,7 +36,7 @@ def first():
                 first = int(char) if first is None else first
                 last = int(char)
         total += first * 10 + last
-    with open("output.txt", "w") as f:
+    with open("output.txt", "w", encoding="utf-8") as f:
         f.write(str(total))
 
 
@@ -81,7 +81,7 @@ def to_number(line: str) -> int | None:
 
 
 def second():
-    with open("input.txt") as f:
+    with open("input.txt", encoding="utf-8") as f:
         lines = f.readlines()
     total = 0
     for line in lines:
@@ -95,7 +95,7 @@ def second():
                 first = val if first is None else first
                 last = val
         total += first * 10 + last
-    with open("output.txt", "w") as f:
+    with open("output.txt", "w", encoding="utf-8") as f:
         f.write(str(total))
 
 

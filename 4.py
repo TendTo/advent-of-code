@@ -36,7 +36,7 @@ Take a seat in the large pile of colorful cards. How many points are they worth 
 
 
 def first():
-    with open("input.txt") as f:
+    with open("input.txt", encoding="utf-8") as f:
         lines = f.readlines()
     total = 0
 
@@ -52,7 +52,7 @@ def first():
                 points = 1 if points == 0 else points * 2
         total += points
 
-    with open("output.txt", "w") as f:
+    with open("output.txt", "w", encoding="utf-8") as f:
         f.write(str(total))
 
 
@@ -88,7 +88,7 @@ Process all of the original and copied scratchcards until no more scratchcards a
 
 
 def second():
-    with open("input.txt") as f:
+    with open("input.txt", encoding="utf-8") as f:
         lines = f.readlines()
     copies: list[int] = [1 for _ in lines]
 
@@ -105,7 +105,7 @@ def second():
         for off in range(points):
             copies[i + off + 1] += 1 * copies[i]
 
-    with open("output.txt", "w") as f:
+    with open("output.txt", "w", encoding="utf-8") as f:
         f.write(str(sum(copies)))
 
 

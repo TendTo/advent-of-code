@@ -32,7 +32,7 @@ MAX_RED = 12
 
 
 def first():
-    with open("input.txt") as f:
+    with open("input.txt", encoding="utf-8") as f:
         lines = f.readlines()
     total = 0
 
@@ -57,7 +57,7 @@ def first():
         if not fake:
             total += game_id
 
-    with open("output.txt", "w") as f:
+    with open("output.txt", "w", encoding="utf-8") as f:
         f.write(str(total))
 
 
@@ -86,7 +86,7 @@ For each game, find the minimum set of cubes that must have been present. What i
 
 
 def second():
-    with open("input.txt") as f:
+    with open("input.txt", encoding="utf-8") as f:
         lines = f.readlines()
     total = 0
 
@@ -112,7 +112,7 @@ def second():
         total += red * green * blue
         print(total)
 
-    with open("output.txt", "w") as f:
+    with open("output.txt", "w", encoding="utf-8") as f:
         f.write(str(total))
 
 
