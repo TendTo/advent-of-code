@@ -7,8 +7,8 @@ Its author is [Eric Wastl](https://twitter.com/ericwastl).
 
 ## Expected input-output
 
-By default the input for each puzzle is read from an `input.txt` file in the same folder as the puzzle.
-The output is written to an `output.txt` file in the same folder as the puzzle.
+By default the input for each puzzle is read from an `input.txt` and the output is written to an `output.txt` file.
+Both files will need to be in the current working directory.
 Keep in mind that this will overwrite the file if it already exists.
 
 ## Year 2023

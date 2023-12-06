@@ -4,8 +4,8 @@ Repository for the [Advent of code 2023](https://adventofcode.com/2023/events) c
 
 ## Expected input-output
 
-By default the input for each puzzle is read from an `input.txt` file in the same folder as the puzzle.
-The output is written to an `output.txt` file in the same folder as the puzzle.
+By default the input for each puzzle is read from an `input.txt` and the output is written to an `output.txt` file.
+Both files will need to be in the current working directory.
 Keep in mind that this will overwrite the file if it already exists.
 
 ## Days
@@ -444,4 +444,26 @@ In the third race, you could hold the button for at least 11 milliseconds and no
 
 To see how much margin of error you have, determine the number of ways you can beat the record in each race; in this example, if you multiply these values together, you get 288 ($4 \cdot 8 \cdot 9$).
 
-Determine the number of ways you could beat the record in each race. What do you get if you multiply these numbers together?
+Determine the number of ways you could beat the record in each race. **_What do you get if you multiply these numbers together?_**
+
+#### Part 2
+
+As the race is about to start, you realize the piece of paper with race times and record distances you got earlier actually just has very bad kerning. There's really only one race - ignore the spaces between the numbers on each line.
+
+So, the example from before:
+
+```
+Time:      7  15   30
+Distance:  9  40  200
+```
+
+...now instead means this:
+
+```
+Time: 71530
+Distance: 940200
+```
+
+Now, you have to figure out how many ways there are to win this single race. In this example, the race lasts for 71530 milliseconds and the record distance you need to beat is 940200 millimeters. You could hold the button anywhere from 14 to 71516 milliseconds and beat the record, a total of 71503 ways!
+
+**_How many ways can you beat the record in this one much longer race?_**
