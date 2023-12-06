@@ -2,6 +2,12 @@
 
 Repository for the [Advent of code 2023](https://adventofcode.com/2023/events) challenge.
 
+## Expected input-output
+
+By default the input for each puzzle is read from an `input.txt` file in the same folder as the puzzle.
+The output is written to an `output.txt` file in the same folder as the puzzle.
+Keep in mind that this will overwrite the file if it already exists.
+
 ## Days
 
 Each day from the 1st to the 25th of December, a new challenge is released.
