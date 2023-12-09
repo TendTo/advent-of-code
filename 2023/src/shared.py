@@ -14,10 +14,10 @@ if TYPE_CHECKING:
 
 class BaseChallenge:
     def __init__(self):
-        self.args: "Args" = None
+        self.args: "Args" = self.parse_args()
 
     def run(self):
-        self.args = self.get_args()
+        self.args = self.parse_args()
         if self.args.part in (0, 1):
             self.output_result(self.first(), 1)
         if self.args.part in (0, 2):
@@ -29,7 +29,7 @@ class BaseChallenge:
     def second(self) -> "Any":
         raise NotImplementedError()
 
-    def get_args(self) -> "Args":
+    def parse_args(self) -> "Args":
         parser = argparse.ArgumentParser()
         parser.add_argument(
             "-i",
