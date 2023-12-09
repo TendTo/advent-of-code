@@ -1,4 +1,7 @@
 import sys
+from io import StringIO
+from typing import Callable
+
 from c1 import Challenge1
 from c2 import Challenge2
 from c3 import Challenge3
@@ -7,9 +10,7 @@ from c5 import Challenge5
 from c6 import Challenge6
 from c7 import Challenge7
 from c8 import Challenge8
-
-from io import StringIO
-from typing import Callable
+from c9 import Challenge9
 
 
 def mock_input(input_str: str = ""):
@@ -304,6 +305,28 @@ XXX = (XXX, XXX)
 )
 def test_challenge_8_part_2():
     assert Challenge8().second() == 6
+
+
+@use_input_fixture(
+    input_str="""
+0 3 6 9 12 15
+1 3 6 10 15 21
+10 13 16 21 30 45
+"""
+)
+def test_challenge_9_part_1():
+    assert Challenge9().first() == 114
+
+
+@use_input_fixture(
+    input_str="""
+0 3 6 9 12 15
+1 3 6 10 15 21
+10 13 16 21 30 45
+"""
+)
+def test_challenge_9_part_2():
+    assert Challenge9().second() == 2
 
 
 if __name__ == "__main__":
