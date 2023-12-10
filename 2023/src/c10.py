@@ -335,6 +335,7 @@ class Challenge10(BaseChallenge):
         if len(self.grid) == 0:
             raise RuntimeError("Empty grid")
         # Create a grid with double the size, with spaces between the tiles
+        # The added tiles can be discriminated by the fact that they are all spaces
         # x -> x .
         #      . .
         self.augmented_grid = [
