@@ -12,6 +12,8 @@ from c7 import Challenge7
 from c8 import Challenge8
 from c9 import Challenge9
 from c10 import Challenge10
+from c11 import Challenge11
+from c12 import Challenge12
 
 
 def mock_input(input_str: str = ""):
@@ -407,6 +409,52 @@ L7JLJL-JLJLJL--JLJ.L
 )
 def test_challenge_10_part_2_complex_2():
     assert Challenge10().second() == 10
+
+
+@use_input_fixture(
+    input_str="""
+...#......
+.......#..
+#.........
+..........
+......#...
+.#........
+.........#
+..........
+.......#..
+#...#.....
+"""
+)
+def test_challenge_11_part_1():
+    assert Challenge11().first() == 374
+
+
+@use_input_fixture(
+    input_str="""
+???.### 1,1,3
+.??..??...?##. 1,1,3
+?#?#?#?#?#?#?#? 1,3,1,6
+????.#...#... 4,1,1
+????.######..#####. 1,6,5
+?###???????? 3,2,1
+"""
+)
+def test_challenge_12_part_1():
+    assert Challenge12().first() == 21
+
+
+@use_input_fixture(
+    input_str="""
+???.### 1,1,3
+.??..??...?##. 1,1,3
+?#?#?#?#?#?#?#? 1,3,1,6
+????.#...#... 4,1,1
+????.######..#####. 1,6,5
+?###???????? 3,2,1
+"""
+)
+def test_challenge_12_part_2():
+    assert Challenge12().second() == 525152
 
 
 if __name__ == "__main__":

@@ -14,7 +14,6 @@ class Challenge11(BaseChallenge):
     def _expand_grid_dense(self):
         # expand rows
         self.expanded_grid = []
-        y_offset = 0
         for row in self.grid:
             if all(char == "." for char in row):
                 self.expanded_grid.append(list(row))
