@@ -15,6 +15,7 @@ from c10 import Challenge10
 from c11 import Challenge11
 from c12 import Challenge12
 from c13 import Challenge13
+from c14 import Challenge14
 
 
 def mock_input(input_str: str = ""):
@@ -537,6 +538,54 @@ def test_challenge_13_part_1():
 )
 def test_challenge_13_part_2():
     assert Challenge13().second() == 400
+
+@use_input_fixture(
+    input_str="""
+O....#....
+O.OO#....#
+.....##...
+OO.#O....O
+.O.....O#.
+O.#..O.#.#
+..O..#O..O
+.......O..
+#....###..
+#OO..#....
+""")
+def test_challenge_14_part_1():
+    assert Challenge14().first() == 136
+
+@use_input_fixture(
+    input_str="""
+OOOO.#.O..
+OO..#....#
+OO..O##..O
+O..#.OO...
+........#.
+..#....#.#
+..O..#.O.O
+..O.......
+#....###..
+#....#....
+""")
+def test_challenge_14_part_1_rolled():
+    assert Challenge14().first() == 136
+
+@use_input_fixture(
+    input_str="""
+O....#....
+O.OO#....#
+.....##...
+OO.#O....O
+.O.....O#.
+O.#..O.#.#
+..O..#O..O
+.......O..
+#....###..
+#OO..#....
+""")
+def test_challenge_14_part_2():
+    assert Challenge14().second() == 64
 
 
 if __name__ == "__main__":

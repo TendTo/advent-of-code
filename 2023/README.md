@@ -195,7 +195,7 @@ In this schematic, there are two gears. The first is in the top left; it has par
 
 **_What is the sum of all of the gear ratios in your engine schematic?_**
 
-#### Day 4: Scratchcards
+### Day 4: Scratchcards
 
 [Code](./src/c4.py)
 
@@ -269,7 +269,7 @@ Once all of the originals and copies have been processed, you end up with 1 inst
 
 Process all of the original and copied scratchcards until no more scratchcards are won. **_Including the original set of scratchcards, how many total scratchcards do you end up with?_**
 
-#### Day 5: If You Give A Seed A Fertilizer
+### Day 5: If You Give A Seed A Fertilizer
 
 [Code](./src/c5.py)
 
@@ -396,7 +396,7 @@ In the above example, the lowest location number can be obtained from seed numbe
 
 Consider all of the initial seed numbers listed in the ranges on the first line of the almanac. **_What is the lowest location number that corresponds to any of the initial seed numbers?_**
 
-#### Day 6: Wait For It
+### Day 6: Wait For It
 
 [Code](./src/c6.py)
 
@@ -469,7 +469,7 @@ Now, you have to figure out how many ways there are to win this single race. In 
 
 **_How many ways can you beat the record in this one much longer race?_**
 
-#### Day 7: Camel Cards
+### Day 7: Camel Cards
 
 #### Part 1
 
@@ -1235,3 +1235,261 @@ In the above example, after unfolding, the number of possible arrangements for s
 After unfolding, adding all of the possible arrangement counts together produces 525152.
 
 Unfold your condition records; **_what is the new sum of possible arrangement counts?_**
+
+### Day 13: Point of Incidence
+
+[Code](./src/c13.py)
+
+#### Part 1
+
+With your help, the hot springs team locates an appropriate spring which launches you neatly and precisely up to the edge of Lava Island.
+
+There's just one problem: you don't see any lava.
+
+You do see a lot of ash and igneous rock; there are even what look like gray mountains scattered around. After a while, you make your way to a nearby cluster of mountains only to discover that the valley between them is completely full of large mirrors. Most of the mirrors seem to be aligned in a consistent way; perhaps you should head in that direction?
+
+As you move through the valley of mirrors, you find that several of them have fallen from the large metal frames keeping them in place. The mirrors are extremely flat and shiny, and many of the fallen mirrors have lodged into the ash at strange angles. Because the terrain is all one color, it's hard to tell where it's safe to walk or where you're about to run into a mirror.
+
+You note down the patterns of ash (`.`) and rocks (`#`) that you see as you walk (your puzzle input); perhaps by carefully analyzing these patterns, you can figure out where the mirrors are!
+
+For example:
+
+```
+#.##..##.
+..#.##.#.
+##......#
+##......#
+..#.##.#.
+..##..##.
+#.#.##.#.
+
+#...##..#
+#....#..#
+..##..###
+#####.##.
+#####.##.
+..##..###
+#....#..#
+```
+
+To find the reflection in each pattern, you need to find a perfect reflection across either a horizontal line between two rows or across a vertical line between two columns.
+
+In the first pattern, the reflection is across a vertical line between two columns; arrows on each of the two columns point at the line between the columns:
+
+```
+123456789
+    ><
+#.##..##.
+..#.##.#.
+##......#
+##......#
+..#.##.#.
+..##..##.
+#.#.##.#.
+    ><
+123456789
+```
+
+In this pattern, the line of reflection is the vertical line between columns 5 and 6. Because the vertical line is not perfectly in the middle of the pattern, part of the pattern (column 1) has nowhere to reflect onto and can be ignored; every other column has a reflected column within the pattern and must match exactly: column 2 matches column 9, column 3 matches 8, 4 matches 7, and 5 matches 6.
+
+The second pattern reflects across a horizontal line instead:
+
+```
+1 #...##..# 1
+2 #....#..# 2
+3 ..##..### 3
+4v#####.##.v4
+5^#####.##.^5
+6 ..##..### 6
+7 #....#..# 7
+```
+
+This pattern reflects across the horizontal line between rows 4 and 5. Row 1 would reflect with a hypothetical row 8, but since that's not in the pattern, row 1 doesn't need to match anything. The remaining rows match: row 2 matches row 7, row 3 matches row 6, and row 4 matches row 5.
+
+To summarize your pattern notes, add up the number of columns to the left of each vertical line of reflection; to that, also add 100 multiplied by the number of rows above each horizontal line of reflection. In the above example, the first pattern's vertical line has 5 columns to its left and the second pattern's horizontal line has 4 rows above it, a total of 405.
+
+Find the line of reflection in each of the patterns in your notes. **_What number do you get after summarizing all of your notes?_**
+
+#### Part 2
+
+You resume walking through the valley of mirrors and - SMACK! - run directly into one. Hopefully nobody was watching, because that must have been pretty embarrassing.
+
+Upon closer inspection, you discover that every mirror has exactly one smudge: exactly one `.` or `#` should be the opposite type.
+
+In each pattern, you'll need to locate and fix the smudge that causes a different reflection line to be valid. (The old reflection line won't necessarily continue being valid after the smudge is fixed.)
+
+Here's the above example again:
+
+```
+#.##..##.
+..#.##.#.
+##......#
+##......#
+..#.##.#.
+..##..##.
+#.#.##.#.
+
+#...##..#
+#....#..#
+..##..###
+#####.##.
+#####.##.
+..##..###
+#....#..#
+```
+
+The first pattern's smudge is in the top-left corner. If the top-left `#` were instead `.`, it would have a different, horizontal line of reflection:
+
+```
+1 ..##..##. 1
+2 ..#.##.#. 2
+3v##......#v3
+4^##......#^4
+5 ..#.##.#. 5
+6 ..##..##. 6
+7 #.#.##.#. 7
+```
+
+With the smudge in the top-left corner repaired, a new horizontal line of reflection between rows 3 and 4 now exists. Row 7 has no corresponding reflected row and can be ignored, but every other row matches exactly: row 1 matches row 6, row 2 matches row 5, and row 3 matches row 4.
+
+In the second pattern, the smudge can be fixed by changing the fifth symbol on row 2 from `.` to `#`:
+
+```
+1v#...##..#v1
+2^#...##..#^2
+3 ..##..### 3
+4 #####.##. 4
+5 #####.##. 5
+6 ..##..### 6
+7 #....#..# 7
+```
+
+Now, the pattern has a different horizontal line of reflection between rows 1 and 2.
+
+Summarize your notes as before, but instead use the new different reflection lines. In this example, the first pattern's new horizontal line has 3 rows above it and the second pattern's new horizontal line has 1 row above it, summarizing to the value 400.
+
+In each pattern, fix the smudge and find the different line of reflection. **_What number do you get after summarizing the new reflection line in each pattern in your notes?_**
+
+### Day 14: Parabolic Reflector Dish
+
+[Code](./src/c14.py)
+
+#### Part 1
+
+You reach the place where all of the mirrors were pointing: a massive parabolic reflector dish attached to the side of another large mountain.
+
+The dish is made up of many small mirrors, but while the mirrors themselves are roughly in the shape of a parabolic reflector dish, each individual mirror seems to be pointing in slightly the wrong direction. If the dish is meant to focus light, all it's doing right now is sending it in a vague direction.
+
+This system must be what provides the energy for the lava! If you focus the reflector dish, maybe you can go where it's pointing and use the light to fix the lava production.
+
+Upon closer inspection, the individual mirrors each appear to be connected via an elaborate system of ropes and pulleys to a large metal platform below the dish. The platform is covered in large rocks of various shapes. Depending on their position, the weight of the rocks deforms the platform, and the shape of the platform controls which ropes move and ultimately the focus of the dish.
+
+In short: if you move the rocks, you can focus the dish. The platform even has a control panel on the side that lets you tilt it in one of four directions! The rounded rocks (`O`) will roll when the platform is tilted, while the cube-shaped rocks (`#`) will stay in place. You note the positions of all of the empty spaces (`.`) and rocks (your puzzle input). For example:
+
+```
+O....#....
+O.OO#....#
+.....##...
+OO.#O....O
+.O.....O#.
+O.#..O.#.#
+..O..#O..O
+.......O..
+#....###..
+#OO..#....
+```
+
+Start by tilting the lever so all of the rocks will slide north as far as they will go:
+
+```
+OOOO.#.O..
+OO..#....#
+OO..O##..O
+O..#.OO...
+........#.
+..#....#.#
+..O..#.O.O
+..O.......
+#....###..
+#....#....
+```
+
+You notice that the support beams along the north side of the platform are damaged; to ensure the platform doesn't collapse, you should calculate the total load on the north support beams.
+
+The amount of load caused by a single rounded rock (`O`) is equal to the number of rows from the rock to the south edge of the platform, including the row the rock is on. (Cube-shaped rocks (`#`) don't contribute to load.) So, the amount of load caused by each rock in each row is as follows:
+
+```
+OOOO.#.O.. 10
+OO..#....#  9
+OO..O##..O  8
+O..#.OO...  7
+........#.  6
+..#....#.#  5
+..O..#.O.O  4
+..O.......  3
+#....###..  2
+#....#....  1
+```
+
+The total load is the sum of the load caused by all of the rounded rocks. In this example, the total load is 136.
+
+Tilt the platform so that the rounded rocks all roll north. Afterward, **_what is the total load on the north support beams?_**
+
+#### Part 2
+
+The parabolic reflector dish deforms, but not in a way that focuses the beam. To do that, you'll need to move the rocks to the edges of the platform. Fortunately, a button on the side of the control panel labeled "spin cycle" attempts to do just that!
+
+Each cycle tilts the platform four times so that the rounded rocks roll north, then west, then south, then east. After each tilt, the rounded rocks roll as far as they can before the platform tilts in the next direction. After one cycle, the platform will have finished rolling the rounded rocks in those four directions in that order.
+
+Here's what happens in the example above after each of the first few cycles:
+
+After 1 cycle:
+
+```
+.....#....
+....#...O#
+...OO##...
+.OO#......
+.....OOO#.
+.O#...O#.#
+....O#....
+......OOOO
+#...O###..
+#..OO#....
+```
+
+After 2 cycles:
+
+```
+.....#....
+....#...O#
+.....##...
+..O#......
+.....OOO#.
+.O#...O#.#
+....O#...O
+.......OOO
+#..OO###..
+#.OOO#...O
+```
+
+After 3 cycles:
+
+```
+.....#....
+....#...O#
+.....##...
+..O#......
+.....OOO#.
+.O#...O#.#
+....O#...O
+.......OOO
+#...O###.O
+#.OOO#...O
+```
+
+This process should work if you leave it running long enough, but you're still worried about the north support beams. To make sure they'll survive for a while, you need to calculate the total load on the north support beams after 1000000000 cycles.
+
+In the above example, after 1000000000 cycles, the total load on the north support beams is 64.
+
+Run the spin cycle for 1000000000 cycles. Afterward, **_What is the total load on the north support beams?_**
