@@ -14,13 +14,17 @@ from c9 import Challenge9
 from c10 import Challenge10
 from c11 import Challenge11
 from c12 import Challenge12
+from c13 import Challenge13
 
 
 def mock_input(input_str: str = ""):
     old_stdin = sys.stdin
     sys.stdin = StringIO(input_str)
+    old_args = sys.argv
+    sys.argv = sys.argv[:1]
     yield
     sys.stdin = old_stdin
+    sys.argv = old_args
 
 
 def use_input_fixture(input_str: str = ""):
@@ -431,6 +435,42 @@ def test_challenge_11_part_1():
 
 @use_input_fixture(
     input_str="""
+...#......
+.......#..
+#.........
+..........
+......#...
+.#........
+.........#
+..........
+.......#..
+#...#.....
+"""
+)
+def test_challenge_11_part_2_mul_10():
+    assert Challenge11(10).second() == 1030
+
+
+@use_input_fixture(
+    input_str="""
+...#......
+.......#..
+#.........
+..........
+......#...
+.#........
+.........#
+..........
+.......#..
+#...#.....
+"""
+)
+def test_challenge_11_part_2_mul_100():
+    assert Challenge11(100).second() == 8410
+
+
+@use_input_fixture(
+    input_str="""
 ???.### 1,1,3
 .??..??...?##. 1,1,3
 ?#?#?#?#?#?#?#? 1,3,1,6
@@ -455,6 +495,48 @@ def test_challenge_12_part_1():
 )
 def test_challenge_12_part_2():
     assert Challenge12().second() == 525152
+
+
+@use_input_fixture(
+    input_str="""#.##..##.
+..#.##.#.
+##......#
+##......#
+..#.##.#.
+..##..##.
+#.#.##.#.
+
+#...##..#
+#....#..#
+..##..###
+#####.##.
+#####.##.
+..##..###
+#....#..#"""
+)
+def test_challenge_13_part_1():
+    assert Challenge13().first() == 405
+
+
+@use_input_fixture(
+    input_str="""#.##..##.
+..#.##.#.
+##......#
+##......#
+..#.##.#.
+..##..##.
+#.#.##.#.
+
+#...##..#
+#....#..#
+..##..###
+#####.##.
+#####.##.
+..##..###
+#....#..#"""
+)
+def test_challenge_13_part_2():
+    assert Challenge13().second() == 400
 
 
 if __name__ == "__main__":

@@ -52,7 +52,6 @@ def _count_arrangements(
 
     arrangements = 0
     while offset is not None and offset <= max_offset:
-        # print(f"Found group {group_index} start {start_offset} at offset {offset}")
         sub_arrangements = _count_arrangements(
             groups,
             springs,
