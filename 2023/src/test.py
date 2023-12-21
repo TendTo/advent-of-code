@@ -21,6 +21,7 @@ from c16 import Challenge16
 from c17 import Challenge17
 from c18 import Challenge18
 from c19 import Challenge19
+from c21 import Challenge21
 
 
 def mock_input(input_str: str = ""):
@@ -774,6 +775,26 @@ hdj{m>838:A,pv}
 )
 def test_challenge_19_part_1():
     assert Challenge19().first() == 19114
+
+
+@use_input_fixture(
+    input_str="""
+...........
+.....###.#.
+.###.##..#.
+..#.#...#..
+....#.#....
+.##..S####.
+.##..#...#.
+.......##..
+.##.#.####.
+.##..##.##.
+...........
+"""
+)
+def test_challenge_21_part_1():
+    assert Challenge21(6).first() == 16
+
 
 if __name__ == "__main__":
     tests = [val for key, val in globals().items() if key.startswith("test_")]
