@@ -1,6 +1,6 @@
 from shared import BaseChallenge
 from enum import Enum
-from typing import Callable, Generator
+from typing import Generator
 
 
 class Step:
@@ -10,7 +10,6 @@ class Step:
             self.direction: Direction = Direction[direction]
             self.steps: int = int(steps)
         else:
-            self.steps = int(color[2:7], 16)
             match color[-2]:
                 case "0":
                     self.direction: Direction = Direction.R
