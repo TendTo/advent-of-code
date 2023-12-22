@@ -21,6 +21,7 @@ from c16 import Challenge16
 from c17 import Challenge17
 from c18 import Challenge18
 from c19 import Challenge19
+from c20 import Challenge20
 from c21 import Challenge21
 
 
@@ -775,6 +776,32 @@ hdj{m>838:A,pv}
 )
 def test_challenge_19_part_1():
     assert Challenge19().first() == 19114
+
+
+@use_input_fixture(
+    input_str="""
+broadcaster -> a, b, c
+%a -> b
+%b -> c
+%c -> inv
+&inv -> a
+"""
+)
+def test_challenge_20_part_1():
+    assert Challenge20().first() == 32000000
+
+
+@use_input_fixture(
+    input_str="""
+broadcaster -> a
+%a -> inv, con
+&inv -> b
+%b -> con
+&con -> output
+"""
+)
+def test_challenge_20_part_1_complex():
+    assert Challenge20().first() == 11687500
 
 
 @use_input_fixture(
