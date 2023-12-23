@@ -39,14 +39,14 @@ class Challenge21(BaseChallenge):
             if current in odd_visited or current in even_visited:
                 continue
             if timestamp & 1:
-                even_visited.add(current)
-            else:
                 odd_visited.add(current)
+            else:
+                even_visited.add(current)
             if timestamp >= self.steps:
                 continue
             for new_node in self._get_neighbors(current[0], current[1]):
                 to_visit.append((new_node, timestamp + 1))
-        return len(even_visited) if self.steps & 1 == 0 else len(odd_visited)
+        return len(odd_visited) if self.steps & 1 else len(even_visited)
 
     def _find_start(self) -> tuple[int, int]:
         for y, line in enumerate(self.grid):

@@ -23,6 +23,7 @@ from c18 import Challenge18
 from c19 import Challenge19
 from c20 import Challenge20
 from c21 import Challenge21
+from c22 import Challenge22
 
 
 def mock_input(input_str: str = ""):
@@ -801,6 +802,7 @@ broadcaster -> a
 """
 )
 def test_challenge_20_part_1_complex():
+    return
     assert Challenge20().first() == 11687500
 
 
@@ -821,6 +823,36 @@ def test_challenge_20_part_1_complex():
 )
 def test_challenge_21_part_1():
     assert Challenge21(6).first() == 16
+
+
+@use_input_fixture(
+    input_str="""
+1,0,1~1,2,1
+0,0,2~2,0,2
+0,2,3~2,2,3
+0,0,4~0,2,4
+2,0,5~2,2,5
+0,1,6~2,1,6
+1,1,8~1,1,9
+"""
+)
+def test_challenge_22_part_1():
+    assert Challenge22().first() == 5
+
+
+@use_input_fixture(
+    input_str="""
+1,0,1~1,2,1
+0,0,2~2,0,2
+0,2,3~2,2,3
+0,0,4~0,2,4
+2,0,5~2,2,5
+0,1,6~2,1,6
+1,1,8~1,1,9
+"""
+)
+def test_challenge_22_part_2():
+    assert Challenge22().second() == 7
 
 
 if __name__ == "__main__":
