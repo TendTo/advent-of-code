@@ -1,5 +1,4 @@
 from shared import BaseChallenge
-from typing import Generator
 
 
 class Block:
@@ -188,7 +187,6 @@ class Challenge22(BaseChallenge):
         total = 0
         for node in dependency_tree.values():
             total += node.destroy()
-            print(node, total)
             for node in dependency_tree.values():
                 node.destroyed = False
         return total
