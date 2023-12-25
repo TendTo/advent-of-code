@@ -11,6 +11,7 @@ class Challenge23(BaseChallenge):
         self.visited: dict[tuple[int, int], bool] = {}
         self.distances: dict[tuple[int, int], int] = {}
         self.prev_start: tuple[int, int] = (-1, -1)
+        self.edges: dict[tuple[int, int], dict[tuple[int, int], int]] = {}
 
     def _inside_grid(self, x: int, y: int) -> bool:
         """
@@ -129,7 +130,7 @@ class Challenge23(BaseChallenge):
                 continue
             yield (new_x, new_y)
 
-    def _bfs(self, start: tuple[int, int], end: tuple[int, int]) -> int:
+    def _dfs(self, start: tuple[int, int], end: tuple[int, int]) -> int:
         """
         Compute the maximum distance between the given start and end positions.
         """
@@ -152,6 +153,30 @@ class Challenge23(BaseChallenge):
             for new_node in self._get_neighbors(current[0], current[1]):
                 if not self.visited.get(new_node, False):
                     stack.insert(0, (new_node, current_dist + 1))
+
+    def _dfs_interceptions(self, start: tuple[int, int], end: tuple[int, int]) -> int:
+        """
+        Compute the maximum distance between the given start and end positions.
+        """
+        stack: list[tuple[tuple[int, int], int]] = [(start, 0)]
+
+        while len(stack) > 0:
+            current, current_dist = stack[0]
+            if current in self.visited and self.visited[current]:
+                self.visited[current] = False
+                stack.pop(0)
+                continue
+
+            self.visited[current] = True
+            if self.distances.get(current, 0) < current_dist:
+                self.distances[current] = current_dist
+
+            if current == end:
+                continue
+
+            for new_node, distance in self.edges[current].items():
+                if not self.visited.get(new_node, False):
+                    stack.insert(0, (new_node, current_dist + distance))
 
     def _find_start_interceptions(self) -> tuple[tuple[int, int], tuple[int, int], int]:
         distance = 0
@@ -181,6 +206,34 @@ class Challenge23(BaseChallenge):
                 break
         return current, prev, distance
 
+    def _find_interceptions(self) -> set[tuple[int, int]]:
+        interceptions: set[tuple[int, int]] = set()
+        for y, line in enumerate(self.grid):
+            for x, c in enumerate(line):
+                if c == "#":
+                    continue
+                if sum(1 for _ in self._get_neighbors(x, y)) > 2:
+                    interceptions.add((x, y))
+        return interceptions
+
+    def _compute_edges(
+        self, start: tuple[int, int], intersections: set[tuple[int, int]]
+    ):
+        visited: set[tuple[int, int]] = set()
+        to_visit: list[tuple[tuple[int, int], tuple[int, int], int]] = [
+            (start, None, 0)
+        ]
+        while len(to_visit) > 0:
+            current, prev, distance = to_visit.pop()
+            if current in visited:
+                continue
+            visited.add(current)
+            for n in self._get_neighbors(current[0], current[1], prev):
+                if n in intersections:
+                    self.edges.setdefault(start, {})[n] = distance + 1
+                else:
+                    to_visit.append((n, current, distance + 1))
+
     def _visualize(self):
         for y, line in enumerate(self.grid):
             for x, char in enumerate(line):
@@ -193,10 +246,14 @@ class Challenge23(BaseChallenge):
     def second(self):
         """ """
         self.grid = tuple(self.stripped_lines)
+        interceptions = self._find_interceptions()
         start, self.prev_start, start_dist = self._find_start_interceptions()
         end, _, end_dist = self._find_end_interceptions()
-        self._bfs(start, end)
-        return self.distances[end] + start_dist + end_dist
+        self.edges = {}
+        for interception in interceptions:
+            self._compute_edges(interception, interceptions)
+        self._dfs_interceptions(start, end)
+        return start_dist + end_dist + self.distances[end]
 
 
 if __name__ == "__main__":
