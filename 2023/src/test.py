@@ -25,6 +25,7 @@ from c20 import Challenge20
 from c21 import Challenge21
 from c22 import Challenge22
 from c23 import Challenge23
+from c24 import Challenge24
 
 
 def mock_input(input_str: str = ""):
@@ -916,6 +917,19 @@ def test_challenge_23_part_1():
 )
 def test_challenge_23_part_2():
     assert Challenge23().second() == 154
+
+
+@use_input_fixture(
+    input_str="""
+19, 13, 30 @ -2,  1, -2
+18, 19, 22 @ -1, -1, -2
+20, 25, 34 @ -2, -2, -4
+12, 31, 28 @ -1, -2, -1
+20, 19, 15 @  1, -5, -3
+"""
+)
+def test_challenge_24_part_1():
+    assert Challenge24((7, 7), (27, 27)).first() == 2
 
 
 if __name__ == "__main__":
