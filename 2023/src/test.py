@@ -63,17 +63,20 @@ def test_challenge_1_part_1():
 
 @use_input_fixture(
     input_str="""
-two1nine
-eightwothree
-abcone2threexyz
-xtwone3four
-4nineeightseven2
-zoneight234
-7pqrstsixteen
+L68
+L30
+R48
+L5
+R60
+L55
+L1
+L99
+R14
+L82
 """
 )
 def test_challenge_1_part_2():
-    assert Challenge1().second() == 281
+    assert Challenge1().second() == 6
 
 
 @use_input_fixture(
