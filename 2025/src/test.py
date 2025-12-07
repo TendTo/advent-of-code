@@ -3,8 +3,8 @@ from io import StringIO
 from typing import Callable
 
 from c1 import Challenge1
-# from c2 import Challenge2
-# from c3 import Challenge3
+from c2 import Challenge2
+from c3 import Challenge3
 # from c4 import Challenge4
 # from c5 import Challenge5
 # from c6 import Challenge6
@@ -81,66 +81,50 @@ def test_challenge_1_part_2():
     assert res == 6, f"Got {res}, expected 6"
 
 
-# @use_input_fixture(
-#     input_str="""
-# Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
-# Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
-# Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
-# Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
-# Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
-# """
-# )
-# def test_challenge_2_part_1():
-#     assert Challenge2().first() == 8
+@use_input_fixture(
+    input_str="""
+11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124
+"""
+)
+def test_challenge_2_part_1():
+    res = Challenge2().first()
+    assert res == 1227775554, f"Got {res}, expected 1227775554"
 
 
-# @use_input_fixture(
-#     input_str="""
-# Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
-# Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
-# Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
-# Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
-# Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
-# """
-# )
-# def test_challenge_2_part_2():
-#     assert Challenge2().second() == 2286
+@use_input_fixture(
+    input_str="""
+11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124
+"""
+)
+def test_challenge_2_part_2():
+    res = Challenge2().second()
+    assert res == 4174379265, f"Got {res}, expected 4174379265"
 
 
-# @use_input_fixture(
-#     input_str="""
-# 467..114..
-# ...*......
-# ..35..633.
-# ......#...
-# 617*......
-# .....+.58.
-# ..592.....
-# ......755.
-# ...$.*....
-# .664.598..
-# """
-# )
-# def test_challenge_3_part_1():
-#     assert Challenge3().first() == 4361
+@use_input_fixture(
+    input_str="""
+987654321111111
+811111111111119
+234234234234278
+818181911112111
+"""
+)
+def test_challenge_3_part_1():
+    res = Challenge3().first()
+    assert res == 357, f"Got {res}, expected 357"
 
 
-# @use_input_fixture(
-#     input_str="""
-# 467..114..
-# ...*......
-# ..35..633.
-# ......#...
-# 617*......
-# .....+.58.
-# ..592.....
-# ......755.
-# ...$.*....
-# .664.598..
-# """
-# )
-# def test_challenge_3_part_2():
-#     assert Challenge3().second() == 467835
+@use_input_fixture(
+    input_str="""
+987654321111111
+811111111111119
+234234234234278
+818181911112111
+"""
+)
+def test_challenge_3_part_2():
+    res = Challenge3().second()
+    assert res == 3121910778619, f"Got {res}, expected 3121910778619"
 
 
 # @use_input_fixture(

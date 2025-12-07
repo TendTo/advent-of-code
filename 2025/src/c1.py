@@ -34,7 +34,6 @@ class Challenge1(BaseChallenge):
                 value += change
             if value >= 100:
                 total += value // 100
-                print(f"Before: value={value}, total={total}")
             if value <= 0:
                 total += -value // 100 + 1
             while value < 0:
