@@ -6,7 +6,7 @@ from c1 import Challenge1
 from c2 import Challenge2
 from c3 import Challenge3
 from c4 import Challenge4
-# from c5 import Challenge5
+from c5 import Challenge5
 # from c6 import Challenge6
 # from c7 import Challenge7
 # from c8 import Challenge8
@@ -165,86 +165,44 @@ def test_challenge_4_part_2():
     assert res == 43, f"Got {res}, expected 43"
 
 
-# @use_input_fixture(
-#     input_str="""
-# seeds: 79 14 55 13
+@use_input_fixture(
+    input_str="""
+3-5
+10-14
+16-20
+12-18
 
-# seed-to-soil map:
-# 50 98 2
-# 52 50 48
-
-# soil-to-fertilizer map:
-# 0 15 37
-# 37 52 2
-# 39 0 15
-
-# fertilizer-to-water map:
-# 49 53 8
-# 0 11 42
-# 42 0 7
-# 57 7 4
-
-# water-to-light map:
-# 88 18 7
-# 18 25 70
-
-# light-to-temperature map:
-# 45 77 23
-# 81 45 19
-# 68 64 13
-
-# temperature-to-humidity map:
-# 0 69 1
-# 1 0 69
-
-# humidity-to-location map:
-# 60 56 37
-# 56 93 4
-# """
-# )
-# def test_challenge_5_part_1():
-#     assert Challenge5().first() == 35
+1
+5
+8
+11
+17
+32
+"""
+)
+def test_challenge_5_part_1():
+    res = Challenge5().first()
+    assert res == 3, f"Got {res}, expected 3"
 
 
-# @use_input_fixture(
-#     input_str="""
-# seeds: 79 14 55 13
+@use_input_fixture(
+    input_str="""
+3-5
+10-14
+16-20
+12-18
 
-# seed-to-soil map:
-# 50 98 2
-# 52 50 48
-
-# soil-to-fertilizer map:
-# 0 15 37
-# 37 52 2
-# 39 0 15
-
-# fertilizer-to-water map:
-# 49 53 8
-# 0 11 42
-# 42 0 7
-# 57 7 4
-
-# water-to-light map:
-# 88 18 7
-# 18 25 70
-
-# light-to-temperature map:
-# 45 77 23
-# 81 45 19
-# 68 64 13
-
-# temperature-to-humidity map:
-# 0 69 1
-# 1 0 69
-
-# humidity-to-location map:
-# 60 56 37
-# 56 93 4
-# """
-# )
-# def test_challenge_5_part_2():
-#     assert Challenge5().second() == 46
+1
+5
+8
+11
+17
+32
+"""
+)
+def test_challenge_5_part_2():
+    res = Challenge5().second()
+    assert res == 14, f"Got {res}, expected 14"
 
 
 # @use_input_fixture(
