@@ -120,7 +120,3 @@ class Challenge5(BaseChallenge):
 
 if __name__ == "__main__":
     Challenge5().run()
-
-520986239125365
-7344177128913
-453501175275736
