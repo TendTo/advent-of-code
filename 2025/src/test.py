@@ -5,7 +5,7 @@ from typing import Callable
 from c1 import Challenge1
 from c2 import Challenge2
 from c3 import Challenge3
-# from c4 import Challenge4
+from c4 import Challenge4
 # from c5 import Challenge5
 # from c6 import Challenge6
 # from c7 import Challenge7
@@ -127,32 +127,42 @@ def test_challenge_3_part_2():
     assert res == 3121910778619, f"Got {res}, expected 3121910778619"
 
 
-# @use_input_fixture(
-#     input_str="""
-# Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
-# Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19
-# Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1
-# Card 4: 41 92 73 84 69 | 59 84 76 51 58  5 54 83
-# Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36
-# Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11
-# """
-# )
-# def test_challenge_4_part_1():
-#     assert Challenge4().first() == 13
+@use_input_fixture(
+    input_str="""
+..@@.@@@@.
+@@@.@.@.@@
+@@@@@.@.@@
+@.@@@@..@.
+@@.@@@@.@@
+.@@@@@@@.@
+.@.@.@.@@@
+@.@@@.@@@@
+.@@@@@@@@.
+@.@.@@@.@.
+"""
+)
+def test_challenge_4_part_1():
+    res = Challenge4().first()
+    assert res == 13, f"Got {res}, expected 13"
 
 
-# @use_input_fixture(
-#     input_str="""
-# Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
-# Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19
-# Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1
-# Card 4: 41 92 73 84 69 | 59 84 76 51 58  5 54 83
-# Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36
-# Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11
-# """
-# )
-# def test_challenge_4_part_2():
-#     assert Challenge4().second() == 30
+@use_input_fixture(
+    input_str="""
+..@@.@@@@.
+@@@.@.@.@@
+@@@@@.@.@@
+@.@@@@..@.
+@@.@@@@.@@
+.@@@@@@@.@
+.@.@.@.@@@
+@.@@@.@@@@
+.@@@@@@@@.
+@.@.@@@.@.
+"""
+)
+def test_challenge_4_part_2():
+    res = Challenge4().second()
+    assert res == 43, f"Got {res}, expected 43"
 
 
 # @use_input_fixture(
