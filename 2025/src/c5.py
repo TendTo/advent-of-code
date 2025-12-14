@@ -110,7 +110,7 @@ class Challenge5(BaseChallenge):
 
     def second(self) -> int:
         ranges: RangeMerger = RangeMerger()
-        for i, line in enumerate(self.stripped_lines):
+        for line in self.stripped_lines:
             if "-" in line:
                 ranges.add_range(Range(*map(int, line.split("-"))))
             else:
