@@ -9,8 +9,8 @@ from c4 import Challenge4
 from c5 import Challenge5
 from c6 import Challenge6
 from c7 import Challenge7
+from c8 import Challenge8
 
-# from c8 import Challenge8
 # from c9 import Challenge9
 # from c10 import Challenge10
 # from c11 import Challenge11
@@ -282,35 +282,62 @@ def test_challenge_7_part_2():
     assert res == 40, f"Got {res}, expected 40"
 
 
-# @use_input_fixture(
-#     input_str="""
-# LLR
+@use_input_fixture(
+    input_str="""
+162,817,812
+57,618,57
+906,360,560
+592,479,940
+352,342,300
+466,668,158
+542,29,236
+431,825,988
+739,650,466
+52,470,668
+216,146,977
+819,987,18
+117,168,530
+805,96,715
+346,949,466
+970,615,88
+941,993,340
+862,61,35
+984,92,344
+425,690,689
+"""
+)
+def test_challenge_8_part_1():
+    res = Challenge8().first(10)
+    assert res == 40, f"Got {res}, expected 40"
 
-# AAA = (BBB, BBB)
-# BBB = (AAA, ZZZ)
-# ZZZ = (ZZZ, ZZZ)
-# """
-# )
-# def test_challenge_8_part_1():
-#     assert Challenge8().first() == 6
 
-
-# @use_input_fixture(
-#     input_str="""
-# LR
-
-# 11A = (11B, XXX)
-# 11B = (XXX, 11Z)
-# 11Z = (11B, XXX)
-# 22A = (22B, XXX)
-# 22B = (22C, 22C)
-# 22C = (22Z, 22Z)
-# 22Z = (22B, 22B)
-# XXX = (XXX, XXX)
-# """
-# )
-# def test_challenge_8_part_2():
-#     assert Challenge8().second() == 6
+@use_input_fixture(
+    input_str="""
+162,817,812
+57,618,57
+906,360,560
+592,479,940
+352,342,300
+466,668,158
+542,29,236
+431,825,988
+739,650,466
+52,470,668
+216,146,977
+819,987,18
+117,168,530
+805,96,715
+346,949,466
+970,615,88
+941,993,340
+862,61,35
+984,92,344
+425,690,689
+"""
+)
+def test_challenge_8_part_2():
+    res = Challenge8().second()
+    assert res == 25272, f"Got {res}, expected 25272"
 
 
 # @use_input_fixture(
