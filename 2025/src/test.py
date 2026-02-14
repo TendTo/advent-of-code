@@ -10,8 +10,8 @@ from c5 import Challenge5
 from c6 import Challenge6
 from c7 import Challenge7
 from c8 import Challenge8
+from c9 import Challenge9
 
-# from c9 import Challenge9
 # from c10 import Challenge10
 # from c11 import Challenge11
 # from c12 import Challenge12
@@ -340,26 +340,38 @@ def test_challenge_8_part_2():
     assert res == 25272, f"Got {res}, expected 25272"
 
 
-# @use_input_fixture(
-#     input_str="""
-# 0 3 6 9 12 15
-# 1 3 6 10 15 21
-# 10 13 16 21 30 45
-# """
-# )
-# def test_challenge_9_part_1():
-#     assert Challenge9().first() == 114
+@use_input_fixture(
+    input_str="""
+7,1
+11,1
+11,7
+9,7
+9,5
+2,5
+2,3
+7,3
+"""
+)
+def test_challenge_9_part_1():
+    res = Challenge9().first()
+    assert res == 50, f"Got {res}, expected 50"
 
 
-# @use_input_fixture(
-#     input_str="""
-# 0 3 6 9 12 15
-# 1 3 6 10 15 21
-# 10 13 16 21 30 45
-# """
-# )
-# def test_challenge_9_part_2():
-#     assert Challenge9().second() == 2
+@use_input_fixture(
+    input_str="""
+7,1
+11,1
+11,7
+9,7
+9,5
+2,5
+2,3
+7,3
+"""
+)
+def test_challenge_9_part_2():
+    res = Challenge9().second()
+    assert res == 24, f"Got {res}, expected 24"
 
 
 # @use_input_fixture(
